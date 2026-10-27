@@ -77,7 +77,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Productos -->
     <section id="productos" class="container py-5">
         <h2 class="text-center mb-4">Nuestra Carta</h2>
@@ -107,6 +107,51 @@
 
     <!-- Instagram y formulario de contacto -->
     <section id="contacto">
+        <div class="container py-4 bg-white border border-1 rounded shadow-sm my-4">
+            <div class="text-center mb-5">
+
+                <div class="eyebrow">CONTÁCTANOS</div>
+
+                <h2 class="mt-2 mb-3">¿Quieres tu cupcake <span class="text-mayse-verde">personalizado</span>?</h2>
+
+                <p class="text-muted mx-auto mb-0" style="max-width: 700px;">
+                    Cuéntanos qué necesitas y ponte en contacto con nuestros pasteleros.
+                </p>
+            </div>
+            <div class="row justify-content-center px-5">
+                <form id="formContacto" onsubmit="enviarWhatsApp(event)">
+                    <div class="row g-3">
+
+                        <!-- NOMBRE -->
+                        <div class="col-12">
+
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre"
+                                autocomplete="name" required>
+
+                        </div>
+
+                        <!-- MENSAJE -->
+                        <div class="col-12">
+
+                            <label for="mensaje" class="form-label">¿En qué podemos ayudarte?</label>
+                            <textarea class="form-control" id="mensaje" name="mensaje" rows="5"
+                                placeholder="Cuéntanos qué servicio necesitas..." required></textarea>
+
+                        </div>
+
+                        <!-- BOTÓN -->
+                        <div class="col-12">
+
+                            <button type="submit" class="btn btn-dorado"><i class="bi bi-whatsapp me-2"></i>Enviar
+                                solicitud</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
     </section>
 
     <!-- Footer -->
