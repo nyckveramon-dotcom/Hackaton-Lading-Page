@@ -55,11 +55,11 @@ const botonConfirmar = document.querySelector("#confirmar");
 const botonVaciar = document.querySelector("#vaciar");
 const menu = document.querySelector("#menu");
 
-function abierto(hora){
+function abierto(hora) {
     return hora >= HORA_APERTURA && hora < HORA_CIERRE;
 }
 
-function formatearPrecio(valor){//El valor regresa como dato de hora
+function formatearPrecio(valor) {//El valor regresa como dato de hora
     return "$" + valor.toLocaleString("es-CO");
 }
 
@@ -141,7 +141,7 @@ function restarDelCarrito(id) {//Se reutiliza la función de buscar linea y se r
 }
 
 //Se genera contador teniendo en cuenta las lineas del pedido
-function contarProductos() { 
+function contarProductos() {
     let cantidad = 0;
 
     for (const linea of pedido) {
@@ -255,6 +255,42 @@ function mostrarPedido() {//cambiar teniendo en cuenta la barra lateral
             <li class="vacio text-muted text-center py-3">
                 Tu pedido está vacío. Agrega algo de la carta.
             </li>`;
+    } else {
+
+        for (const linea of pedido) {
+            html += `
+            <li class="linea">
+            <div class="linea-info">
+            <span class="linea-nombre">${linea.producto.nombre}</span>
+                        <span class="linea-subtotal">
+                            ${formatearPrecio(linea.producto.precio * linea.cantidad)}
+                        </span>
+                    </div>
+
+                    <div class="linea-controles">
+                        <button type="button" data-accion="restar"
+                            data-id="${linea.producto.id}" aria-label="Quitar uno">−</button>
+
+                        <span>${linea.cantidad}</span>
+
+                        <button type="button" data-accion="sumar"
+                            data-id="${linea.producto.id}" aria-label="Agregar uno">+</button>
+
+                        <button class="quitar" type="button" data-accion="quitar"
+                            data-id="${linea.producto.id}">Quitar</button>
+                    </div>
+                </li>`;
+        }
+
+        html += `
+            </ul>
+            <div class="resumen-pedido">
+                <span>Productos: ${contarProductos()}</span>
+                <strong>Total: ${formatearPrecio(calcularTotal())}</strong>
+            </div>
+            </div>
+            `;
+
     }
 
     listaPedido.innerHTML = html;
@@ -379,6 +415,34 @@ if (botonConfirmar) {
     });
 }
 
+//WHATSAPP
+function enviarWhatsApp(event) {
+    event.preventDefault();
+
+    const nombre = document.getElementById("nombre").value.trim();
+    const mensaje = document.getElementById("mensaje").value.trim();
+    const numeroWhatsApp = "573124308815";
+
+    if (!nombre || !mensaje) {
+        alert("Por favor, completa tu nombre y tu consulta.");
+        return;
+    }
+
+    let texto =
+        "Hola, equipo Dulce Capricho 👋\n\n" +
+        "Me gustaría conocer más sobre sus productos personalizados y saber " +
+        "cómo pueden ayudarme.\n\n";
+
+    texto += "*Nombre:* " + nombre + "\n";
+    texto += "*Mi consulta:*\n" + mensaje + "\n\n";
+    texto += "Quedo atento(a) a su respuesta. " + "Muchas gracias por su atención.";
+    const url = "https://wa.me/" + numeroWhatsApp + "?text=" + encodeURIComponent(texto);
+    window.open(url, "_blank", "noopener,noreferrer");
+}
+
+const formulario = document.querySelector("#formulario-contacto");
+
+formulario.addEventListener("submit", enviarWhatsApp);
 
 // ===== Arranque =====
 mostrarEstado();
