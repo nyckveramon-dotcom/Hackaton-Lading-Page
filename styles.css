@@ -1,11 +1,11 @@
-/* ============================================================ */
-/* Dulce Capricho Store · Estilos de la Landing Page            */
-/* ============================================================ */
+/* ============================================================
+   Dulce Capricho Store · Estilos Landing Page
+   ============================================================ */
 
-/* Importación de Fuentes de Google Fonts */
+/* Importación de fuentes de Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@600;700;800&family=Poppins:wght@400;500&family=Quicksand:wght@500;700&display=swap');
 
-/* ===== Variables de Color (Paleta de Marca) ===== */
+/* ===== Variables del Sistema ===== */
 :root {
     --color-chocolate: #5D2E1B;
     --color-caramelo:  #A26B49;
@@ -14,7 +14,6 @@
     --color-dorado:    #FFD700;
     --color-crema:     #FFFDF9;
     
-    /* Tipografías */
     --font-titulos:    'Montserrat Alternates', sans-serif;
     --font-subtitulos: 'Quicksand', sans-serif;
     --font-cuerpo:     'Poppins', sans-serif;
@@ -34,7 +33,7 @@ body {
     line-height: 1.6;
 }
 
-/* ===== Tipografías Globales para Títulos y Subtítulos ===== */
+/* ===== Tipografías y Jerarquía ===== */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-titulos);
     color: var(--color-chocolate);
@@ -50,7 +49,7 @@ p, span, li, a {
     font-family: var(--font-cuerpo);
 }
 
-/* ===== Estilos de Cabecera y Navegación ===== */
+/* ===== Header y Navegación ===== */
 header {
     background-color: var(--color-crema);
     border-bottom: 2px solid var(--color-caramelo);
@@ -82,7 +81,7 @@ nav a:hover {
     color: var(--color-caramelo);
 }
 
-/* ===== Botones de Llamada a la Acción (CTA) ===== */
+/* ===== Botones y Componentes ===== */
 .btn-dorado {
     background-color: var(--color-dorado);
     color: var(--color-chocolate);
@@ -102,7 +101,7 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
-/* ===== Hero Section (Sección Principal) ===== */
+/* ===== Hero Section ===== */
 .hero {
     background: linear-gradient(rgba(93, 46, 27, 0.4), rgba(93, 46, 27, 0.4)), url('../img/hero-bakery.jpg') no-repeat center center/cover;
     min-height: 80vh;
@@ -128,7 +127,7 @@ nav a:hover {
     margin-bottom: 2rem;
 }
 
-/* ===== Secciones de Categorías (Tarjetas estilo referencia) ===== */
+/* ===== Secciones y Tarjetas ===== */
 .categorias {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -163,7 +162,7 @@ nav a:hover {
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-/* ===== Pie de Página (Footer) ===== */
+/* ===== Footer ===== */
 footer {
     background-color: var(--color-chocolate);
     color: var(--color-crema);
