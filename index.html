@@ -55,31 +55,41 @@
     </header>
 
     <div id="carouselExampleInterval" class="carousel slide" data-bs-autoplay="true">
-  <div class="carousel-inner rounded-5">
-    <div class="carousel-item active" data-bs-interval="2000">
-      <img src="https://i.pinimg.com/1200x/59/13/2b/59132becf164a8d3cfcfc31b8c1e84d3.jpg" class="d-block w-100" alt="Cupcake de vainilla">
+        <div class="carousel-inner rounded-5">
+            <div class="carousel-item active" data-bs-interval="2000">
+                <img src="https://i.pinimg.com/1200x/59/13/2b/59132becf164a8d3cfcfc31b8c1e84d3.jpg"
+                    class="d-block w-100" alt="Cupcake de vainilla">
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+                <img src="https://i.pinimg.com/736x/9b/76/0f/9b760f7f7c59741a4d0f60e0077f6b7b.jpg" class="d-block w-100"
+                    alt="Cupcake de chocolate">
+            </div>
+            <div class="carousel-item" data-bs-interval="6000">
+                <img src="https://i.pinimg.com/736x/2d/68/31/2d6831563cb143df1ad554bbc061ead3.jpg" class="d-block w-100"
+                    alt="Cupcake de limón">
+            </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mt-3">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="3"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="4"
+                    aria-label="Slide 3"></button>
+            </div>
+            <button class="btn-icon btn-sm carousel-control-play-pause" type="button"
+                data-bs-target="#carouselExampleInterval" aria-label="Pause" data-bs-pause-label="Pause"
+                data-bs-play-label="Play">
+                <span class="carousel-icon-pause" aria-hidden="true"></span>
+                <span class="carousel-icon-play" aria-hidden="true"></span>
+            </button>
+        </div>
     </div>
-    <div class="carousel-item" data-bs-interval="4000">
-      <img src="https://i.pinimg.com/736x/9b/76/0f/9b760f7f7c59741a4d0f60e0077f6b7b.jpg" class="d-block w-100" alt="Cupcake de chocolate">
-    </div>
-    <div class="carousel-item" data-bs-interval="6000">
-      <img src="https://i.pinimg.com/736x/2d/68/31/2d6831563cb143df1ad554bbc061ead3.jpg" class="d-block w-100" alt="Cupcake de limón">
-    </div>
-  </div>
-  <div class="d-flex justify-content-between align-items-center mt-3">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="3" aria-label="Slide 3"></button>
-      <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="4" aria-label="Slide 3"></button>
-    </div>
-    <button class="btn-icon btn-sm carousel-control-play-pause" type="button" data-bs-target="#carouselExampleInterval" aria-label="Pause" data-bs-pause-label="Pause" data-bs-play-label="Play">
-      <span class="carousel-icon-pause" aria-hidden="true"></span>
-      <span class="carousel-icon-play" aria-hidden="true"></span>
-    </button>
-  </div>
-</div>
 
     <!-- ¿Por qué nosotros? -->
     <section id="valor" class="container py-5">
@@ -218,6 +228,113 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal de notificaciones -->
+    <div class="modal fade" id="modalNotificacion" tabindex="-1" aria-labelledby="tituloNotificacion"
+        aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-dulce">
+
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="tituloNotificacion">
+                        ¡Hola! 🧁
+                    </h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar">
+                    </button>
+                </div>
+
+                <div class="modal-body" id="mensajeNotificacion">
+                    Aquí aparecerá tu mensaje.
+                </div>
+
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-dulce" data-bs-dismiss="modal">
+                        Entendido
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para confirmar acciones -->
+    <div class="modal fade" id="modalConfirmacion" tabindex="-1" aria-labelledby="tituloConfirmacion"
+        aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-dulce">
+
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="tituloConfirmacion">
+                        ¿Estás segura? 💗
+                    </h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar">
+                    </button>
+                </div>
+
+                <div class="modal-body" id="mensajeConfirmacion">
+                    ¿Deseas continuar?
+                </div>
+
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+
+                    <button type="button" class="btn btn-dulce" id="aceptarConfirmacion">
+                        Sí, continuar
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para solicitar el nombre -->
+    <div class="modal fade" id="modalNombre" tabindex="-1" aria-labelledby="tituloNombre" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-dulce">
+
+                <form id="formularioNombre">
+
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title" id="tituloNombre">
+                            ¡Preparamos algo delicioso! 🧁
+                        </h5>
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar">
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <label for="nombrePedido" class="form-label">
+                            ¿A nombre de quién va el pedido?
+                        </label>
+
+                        <input type="text" id="nombrePedido" class="form-control" placeholder="Escribe tu nombre"
+                            required maxlength="100">
+                    </div>
+
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                            Cancelar
+                        </button>
+
+                        <button type="submit" class="btn btn-dulce">
+                            Confirmar pedido
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="app.js"></script>
