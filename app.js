@@ -53,6 +53,13 @@ const productos = [
         precio: 6500,
         imagen: 'https://i.pinimg.com/736x/64/de/2d/64de2d8df3e4b4fd04f460708b92f777.jpg'
     }
+    {
+        id: 6,
+        nombre: "Cupcake Combinado",
+        descripcion: "Bizcocho relleno de requipe con crema de fresa y chispas.",
+        precio: 6500,
+        imagen: 'https://i.pinimg.com/736x/8d/7b/a2/8d7ba259f7315e2b17e0f381756e400f.jpg'
+    }
 
 ];
 
