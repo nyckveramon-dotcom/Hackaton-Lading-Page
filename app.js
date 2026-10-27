@@ -471,10 +471,6 @@ if (botonConfirmar) {
             return;
         }
 
-        mostrarNotificacion(`¡Gracias, ${nombre}!`, `Productos: ${contarProductos()}...`);
-
-        console.log("Pedido confirmado:", nombre, pedido);
-
         nombre.value = "";
         modalNombre.show();
     });
