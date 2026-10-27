@@ -44,10 +44,10 @@
     </nav>
 
     <header id="inicio" class="bg-primary text-white text-center py-1">
-        <img src="https://images.unsplash.com/photo-1771016833998-358dc4cab681?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+        <img src="https://images.unsplash.com/photo-1771016833998-358dc4cab681?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Fondo del header" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover opacity-50">
         <div class="container py-lg-5 position-relative">
-            <p class="text-uppercase small fw-semibold mb-2">Los postres más ricos de Colombia</p>
+            <p id="estado" class="small fw-semibold mb-2"></p>
             <h1 class="display-5 fw-bold">Acá encuentras todo lo que necesitas para ser feliz</h1>
             <p class="lead mb-4">Preparamos cupcakes que no podrás parar de comer</p>
             <a href="#productos" class="btn btn-light btn-lg m-1">Ver los productos</a>
@@ -55,37 +55,75 @@
     </header>
 
     <!-- ¿Por qué nosotros? -->
-    <section>
-
+    <section id="valor">
     </section>
     
     <!-- Productos -->
-    <section>
-
+    <section id="productos" class="container py-5">
+        <h2 class="text-center mb-4">Nuestra Carta</h2>
+        <ul id="menu" class="list-unstyled row g-4">
+            <!-- Se carga desde JS -->
+        </ul>
     </section>
 
     <!-- Cómo hacer un pedido -->
-    <section>
-
+    <section id="pedido">
     </section>
 
     <!-- Carrito -->
-    <section>
-
+    <section id="carrito" class="container py-4 bg-light rounded shadow-sm my-4">
+        <h3>Tu Pedido (<span id="contador-pedido">0</span>)</h3>
+        <ul id="lista-pedido" class="list-unstyled">
+            <!-- Se carga desde JS -->
+        </ul>
+        <div class="d-flex justify-content-between align-items-center mt-3">
+            <h5>Total: <span id="total-pedido">$0</span></h5>
+            <div>
+                <button id="vaciar" class="btn btn-outline-danger btn-sm me-2">Vaciar</button>
+                <button id="confirmar" class="btn btn-dorado">Confirmar Pedido</button>
+            </div>
+        </div>
     </section>
 
     <!-- Instagram y formulario de contacto -->
-    <section>
-
+    <section id="contacto">
     </section>
 
     <!-- Footer -->
-    <footer>
-
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-main">
+                <a class="footer-brand" href="#inicio">
+                    <img src="assets/logo-dulce-capricho.png" alt="">
+                    <span>Dulce Capricho</span>
+                </a>
+                <p class="footer-tagline">Un dulce capricho siempre alegra el día.</p>
+                <div class="footer-team">
+                    <h2>Equipo 5</h2>
+                    <ul>
+                        <li>Nycol Vanesa Vera Montaño</li>
+                        <li>Jonathan David Reyes Rubio</li>
+                        <li>Jhoiner Andretty</li>
+                        <li>Michalle Daniela Muñoz Ortegón</li>
+                    </ul>
+                </div>
+                <nav class="footer-nav" aria-label="Navegación del pie de página">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#valor">Por qué escogernos</a>
+                    <a href="#productos">Productos</a>
+                    <a href="#pedido">Cómo hacer un pedido</a>
+                    <a href="#contacto">Contacto</a>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; Dulce Capricho. Todos los derechos reservados.</span>
+                <a href="#inicio">Volver arriba <i class="bi bi-arrow-up" aria-hidden="true"></i></a>
+            </div>
+        </div>
     </footer>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="app.js"></script>
 </body>
 
 </html>
