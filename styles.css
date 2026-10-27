@@ -184,6 +184,11 @@ nav a:hover {
     font-weight: 700;
 }
 
+#valor .carousel img {
+    height: 360px;
+    object-fit: cover;
+}
+
 /* ===== Secciones y Tarjetas ===== */
 .categorias {
     display: grid;
@@ -197,7 +202,7 @@ nav a:hover {
 .card-celeste {
     background-color: var(--color-celeste);
     border-radius: 15px;
-    padding: 2rem;
+    padding: 1rem;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
@@ -206,7 +211,7 @@ nav a:hover {
     background-color: var(--color-caramelo);
     color: var(--color-crema);
     border-radius: 15px;
-    padding: 2rem;
+    padding: 1rem;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
@@ -214,7 +219,7 @@ nav a:hover {
 .card-lila {
     background-color: var(--color-lila);
     border-radius: 15px;
-    padding: 2rem;
+    padding: 1rem;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
@@ -294,6 +299,10 @@ nav a:hover {
 }
 
 @media (max-width: 767.98px) {
+    #valor .carousel img {
+        height: 240px;
+    }
+
     .footer-main {
         grid-template-columns: 1fr;
     }
