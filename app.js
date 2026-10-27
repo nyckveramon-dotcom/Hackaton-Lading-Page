@@ -3,42 +3,61 @@
 const HORA_APERTURA = 9;
 const HORA_CIERRE = 17;
 
+// ===== MODALES BOOTSTRAP =====
+
+const elementoModalNotificacion = document.querySelector("#modalNotificacion");
+const elementoModalConfirmacion = document.querySelector("#modalConfirmacion");
+const elementoModalNombre = document.querySelector("#modalNombre");
+const formularioNombre = document.querySelector("#formularioNombre");
+
+const modalNotificacion = elementoModalNotificacion
+    ? new bootstrap.Modal(elementoModalNotificacion)
+    : null;
+
+const modalConfirmacion = elementoModalConfirmacion
+    ? new bootstrap.Modal(elementoModalConfirmacion)
+    : null;
+
+const modalNombre = elementoModalNombre
+    ? new bootstrap.Modal(elementoModalNombre)
+    : null;
+
 const productos = [
-  {
-    id: 1,
-    nombre: "Cupcake de vainilla",
-    descripcion: "Bizcocho de vainilla con relleno de mora y crema chantilly.",
-    precio: 5000,
-    imagen: 'https://i.pinimg.com/1200x/59/13/2b/59132becf164a8d3cfcfc31b8c1e84d3.jpg'
-  },
-  {
-    id: 2,
-    nombre: "Cupcake de chocolate",
-    descripcion: "Bizcocho de chocolate con relleno de arequipe y crema de chocolate.",
-    precio: 6000,
-    imagen:'https://i.pinimg.com/736x/9b/76/0f/9b760f7f7c59741a4d0f60e0077f6b7b.jpg'
-  },
-  {
-    id: 3,
-    nombre: "Cupcake de limón",
-    descripcion: "Bizcocho de limón sin relleno, con crema chantilly.",
-    precio: 4500,
-    imagen: 'https://i.pinimg.com/736x/2d/68/31/2d6831563cb143df1ad554bbc061ead3.jpg'
-  },
-  {
-    id: 4,
-    nombre: "Cupcake de mocca",
-    descripcion: "Bizcocho de moca con relleno de chocolate y crema de vainilla con chipas de chocolate.",
-    precio: 6500,
-    imagen: 'https://i.pinimg.com/1200x/19/80/92/198092435aa38a549a4f87a40d782099.jpg'
-  },
-  {
-    id: 5,
-    nombre: "Cupcake Red Velvet",
-    descripcion: "Bizcocho Red Velvet con relleno de mora y cobertura de vainilla con frutas.",
-    precio: 6500,
-    imagen:'https://i.pinimg.com/736x/64/de/2d/64de2d8df3e4b4fd04f460708b92f777.jpg'
-  }
+    {
+        id: 1,
+        nombre: "Cupcake de vainilla",
+        descripcion: "Bizcocho de vainilla con relleno de mora y crema chantilly.",
+        precio: 5000,
+        imagen: 'https://i.pinimg.com/1200x/59/13/2b/59132becf164a8d3cfcfc31b8c1e84d3.jpg'
+    },
+    {
+        id: 2,
+        nombre: "Cupcake de chocolate",
+        descripcion: "Bizcocho de chocolate con relleno de arequipe y crema de chocolate.",
+        precio: 6000,
+        imagen: 'https://i.pinimg.com/736x/9b/76/0f/9b760f7f7c59741a4d0f60e0077f6b7b.jpg'
+    },
+    {
+        id: 3,
+        nombre: "Cupcake de limón",
+        descripcion: "Bizcocho de limón sin relleno, con crema chantilly.",
+        precio: 4500,
+        imagen: 'https://i.pinimg.com/736x/2d/68/31/2d6831563cb143df1ad554bbc061ead3.jpg'
+    },
+    {
+        id: 4,
+        nombre: "Cupcake de mocca",
+        descripcion: "Bizcocho de moca con relleno de chocolate y crema de vainilla con chipas de chocolate.",
+        precio: 6500,
+        imagen: 'https://i.pinimg.com/1200x/19/80/92/198092435aa38a549a4f87a40d782099.jpg'
+    },
+    {
+        id: 5,
+        nombre: "Cupcake Red Velvet",
+        descripcion: "Bizcocho Red Velvet con relleno de mora y cobertura de vainilla con frutas.",
+        precio: 6500,
+        imagen: 'https://i.pinimg.com/736x/64/de/2d/64de2d8df3e4b4fd04f460708b92f777.jpg'
+    }
 
 ];
 
@@ -298,6 +317,37 @@ function mostrarPedido() {//cambiar teniendo en cuenta la barra lateral
     if (totalPedido) totalPedido.textContent = formatearPrecio(calcularTotal());
 }
 
+function mostrarNotificacion(titulo, mensaje) {
+    document.querySelector("#tituloNotificacion").textContent = titulo;
+    document.querySelector("#mensajeNotificacion").textContent = mensaje;
+
+    modalNotificacion.show();
+}
+
+//WHATSAPP
+function enviarWhatsApp(event) {
+    event.preventDefault();
+
+    const nombre = document.getElementById("nombre").value.trim();
+    const mensaje = document.getElementById("mensaje").value.trim();
+    const numeroWhatsApp = "573124308815";
+
+    if (!nombre || !mensaje) {
+        mostrarNotificacion("¿Te faltó algún campo? 😭", "Por favor, completa tu nombre y tu consulta.");
+        return;
+    }
+
+    let texto =
+        "Hola, equipo Dulce Capricho 👋\n\n" +
+        "Me gustaría conocer más sobre sus productos personalizados y saber " +
+        "cómo pueden ayudarme.\n\n";
+
+    texto += "*Nombre:* " + nombre + "\n";
+    texto += "*Mi consulta:*\n" + mensaje + "\n\n";
+    texto += "Quedo atento(a) a su respuesta. " + "Muchas gracias por su atención.";
+    const url = "https://wa.me/" + numeroWhatsApp + "?text=" + encodeURIComponent(texto);
+    window.open(url, "_blank", "noopener,noreferrer");
+}
 
 // Se crea el evento de acuerdo a los botones requeridos (agregar, sumar y restar del pedido)
 if (menu) {
@@ -368,17 +418,29 @@ if (listaPedido) {
 
 //Se crea el evento para vaciar el pedido
 if (botonVaciar) {
+
     botonVaciar.addEventListener("click", function () {
+
         if (pedido.length === 0) {
+            mostrarNotificacion("Tu cajita ya está vacía 🧁", "No hay productos que eliminar.");
             return;
         }
 
-        const seguro = confirm("¿Seguro que quieres vaciar tu pedido?");
+        document.querySelector("#tituloConfirmacion").textContent = "¿Vaciamos tu cajita? 💗";
 
-        if (seguro) {
+        document.querySelector("#mensajeConfirmacion").textContent = "Se eliminarán todos los productos de tu pedido.";
+
+        const botonAceptar = document.querySelector("#aceptarConfirmacion");
+
+        botonAceptar.textContent = "Sí, vaciar";
+
+        botonAceptar.onclick = function () {
             pedido = [];
             mostrarPedido();
-        }
+            modalConfirmacion.hide();
+        };
+
+        modalConfirmacion.show();
     });
 }
 
@@ -386,63 +448,76 @@ if (botonVaciar) {
 if (botonConfirmar) {
     botonConfirmar.addEventListener("click", function () {
         if (pedido.length === 0) {
-            alert("Tu pedido está vacío. Agrega algo de la carta.");
+            mostrarNotificacion("¡Tu cajita está vacía! 🧁", "Agrega tus cupcakes favoritos antes de continuar.");
             return;
         }
 
         if (!abierto(new Date().getHours())) {
-            alert("Ahora estamos cerrados. Recibimos pedidos de 9:00 a. m. a 5:00 p. m.");
+            mostrarNotificacion("Ahora estamos cerrados 😞", "Recibimos pedidos de 9:00 a. m. a 5:00 p. m.");
             return;
         }
 
-        const nombre = prompt("¿A nombre de quién va el pedido?");
+        // Limpiar el campo antes de abrir el modal
+        const nombre = document.querySelector("#nombrePedido");
 
-        if (nombre === null) {
+        if (!nombre || !modalNombre) {
+            console.error("No se encontró el input o el modal del nombre.");
             return;
         }
 
-        if (nombre.trim() === "") {
-            alert("Con tu nombre podemos entregarte el pedido.");
-            return;
-        }
-
-        alert(`¡Gracias, ${nombre}!\nProductos: ${contarProductos()}\nTotal: ${formatearPrecio(calcularTotal())}\nNos comunicaremos contigo cuando tus cupcakes esten listos.`);
+        mostrarNotificacion(`¡Gracias, ${nombre}!`, `Productos: ${contarProductos()}...`);
 
         console.log("Pedido confirmado:", nombre, pedido);
 
-        pedido = [];
-        mostrarPedido();
+        nombre.value = "";
+        modalNombre.show();
     });
 }
 
-//WHATSAPP
-function enviarWhatsApp(event) {
-    event.preventDefault();
-
-    const nombre = document.getElementById("nombre").value.trim();
-    const mensaje = document.getElementById("mensaje").value.trim();
-    const numeroWhatsApp = "573124308815";
-
-    if (!nombre || !mensaje) {
-        alert("Por favor, completa tu nombre y tu consulta.");
-        return;
-    }
-
-    let texto =
-        "Hola, equipo Dulce Capricho 👋\n\n" +
-        "Me gustaría conocer más sobre sus productos personalizados y saber " +
-        "cómo pueden ayudarme.\n\n";
-
-    texto += "*Nombre:* " + nombre + "\n";
-    texto += "*Mi consulta:*\n" + mensaje + "\n\n";
-    texto += "Quedo atento(a) a su respuesta. " + "Muchas gracias por su atención.";
-    const url = "https://wa.me/" + numeroWhatsApp + "?text=" + encodeURIComponent(texto);
-    window.open(url, "_blank", "noopener,noreferrer");
-}
-
-const formulario = document.querySelector("#formulario-contacto");
+const formulario = document.querySelector("#formContacto");
 
 formulario.addEventListener("submit", enviarWhatsApp);
+
+if (formularioNombre) {
+    formularioNombre.addEventListener("submit", function (evento) {
+
+        evento.preventDefault();
+
+        const campoNombre = document.querySelector("#nombrePedido");
+        const nombre = campoNombre.value.trim();
+
+        // Validar el nombre
+        if (nombre === "") {
+            mostrarNotificacion(
+                "¿No digitaste tu nombre? 💬",
+                "Con tu nombre podemos entregarte el pedido."
+            );
+            return;
+        }
+
+        // Obtener el resumen antes de limpiar el carrito
+        const cantidad = contarProductos();
+        const total = formatearPrecio(calcularTotal());
+
+        console.log("Pedido confirmado:", nombre, pedido);
+
+        // Cerrar el modal del nombre
+        modalNombre.hide();
+
+        // Mostrar la confirmación
+        mostrarNotificacion(
+            `¡Gracias, ${nombre}! 🧁`,
+            `Productos: ${cantidad}\nTotal: ${total}\nNos comunicaremos contigo cuando tus cupcakes estén listos.`
+        );
+
+        // Vaciar el pedido
+        pedido = [];
+        mostrarPedido();
+
+        // Limpiar el campo
+        campoNombre.value = "";
+    });
+}
 
 // ===== Arranque =====
 mostrarEstado();
