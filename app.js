@@ -1,26 +1,21 @@
-//Datos generales//
+// Se definen constantes
 
 const HORA_APERTURA = 9;
 const HORA_CIERRE = 17;
+const CLAVE_PEDIDO = "dulceCaprichoPedido";
 
-// ===== MODALES BOOTSTRAP =====
+// Se capturan modales
 
 const elementoModalNotificacion = document.querySelector("#modalNotificacion");
 const elementoModalConfirmacion = document.querySelector("#modalConfirmacion");
 const elementoModalNombre = document.querySelector("#modalNombre");
 const formularioNombre = document.querySelector("#formularioNombre");
 
-const modalNotificacion = elementoModalNotificacion
-    ? new bootstrap.Modal(elementoModalNotificacion)
-    : null;
+const modalNotificacion = elementoModalNotificacion ? new bootstrap.Modal(elementoModalNotificacion) : null;
+const modalConfirmacion = elementoModalConfirmacion ? new bootstrap.Modal(elementoModalConfirmacion) : null;
+const modalNombre = elementoModalNombre ? new bootstrap.Modal(elementoModalNombre) : null;
 
-const modalConfirmacion = elementoModalConfirmacion
-    ? new bootstrap.Modal(elementoModalConfirmacion)
-    : null;
-
-const modalNombre = elementoModalNombre
-    ? new bootstrap.Modal(elementoModalNombre)
-    : null;
+// Se define array de productos a mostrar
 
 const productos = [
     {
@@ -61,7 +56,6 @@ const productos = [
 
 ];
 
-const CLAVE_PEDIDO = "dulceCaprichoPedido";
 let pedido = [];
 
 //Manejo del DOOM 
@@ -148,7 +142,9 @@ function quitarDelCarrito(id) {
     pedido = pedido.filter((linea) => linea.producto.id !== id);
 }
 
-function restarDelCarrito(id) {//Se reutiliza la función de buscar linea y se realiza eliminación con --
+//Se reutiliza la función de buscar linea y se realiza eliminación con --
+function restarDelCarrito(id) {
+
     const linea = buscarLinea(id);
     if (!linea) return;
 
@@ -161,6 +157,7 @@ function restarDelCarrito(id) {//Se reutiliza la función de buscar linea y se r
 
 //Se genera contador teniendo en cuenta las lineas del pedido
 function contarProductos() {
+
     let cantidad = 0;
 
     for (const linea of pedido) {
@@ -172,6 +169,7 @@ function contarProductos() {
 
 
 function calcularTotal() {
+
     let total = 0;
 
     for (const linea of pedido) {
@@ -184,6 +182,7 @@ function calcularTotal() {
 
 // ===== Pintar: del estado a la pantalla =====
 function mostrarEstado() {
+
     const estado = document.querySelector("#estado");
     if (!estado) return;
     const horaActual = new Date().getHours();
@@ -197,7 +196,8 @@ function mostrarEstado() {
     }
 }
 
-function mostrarCarta() {//cambiar teniendo en cuenta la barra lateral
+// Se muestran productos
+function mostrarCarta() {
     if (!menu) return;
     let html = "";
 
@@ -224,7 +224,8 @@ function mostrarCarta() {//cambiar teniendo en cuenta la barra lateral
     menu.innerHTML = html;
 }
 
-function mostrarPedido() {//cambiar teniendo en cuenta la barra lateral
+// Se muestran los productos en el carrito
+function mostrarPedido() {
     if (!listaPedido) return;
     guardarPedido();
     let html = "";
@@ -324,8 +325,9 @@ function mostrarNotificacion(titulo, mensaje) {
     modalNotificacion.show();
 }
 
-//WHATSAPP
+// Se envia información al whatsapp
 function enviarWhatsApp(event) {
+    
     event.preventDefault();
 
     const nombre = document.getElementById("nombre").value.trim();
@@ -351,6 +353,7 @@ function enviarWhatsApp(event) {
 
 // Se crea el evento de acuerdo a los botones requeridos (agregar, sumar y restar del pedido)
 if (menu) {
+
     menu.addEventListener("click", function (evento) {
         const boton = evento.target.closest("button[data-accion]");
 
@@ -393,6 +396,7 @@ if (menu) {
 
 //Se crea el evento a las acciones de agregar, restar y quitar del pedido
 if (listaPedido) {
+
     listaPedido.addEventListener("click", function (evento) {
         const boton = evento.target.closest("button[data-accion]");
         if (!boton) return;
@@ -446,6 +450,8 @@ if (botonVaciar) {
 
 //Se crea el evento para las alertas en el caso del carrito vacio y cuando se encuentre cerrado el sitio
 if (botonConfirmar) {
+
+
     botonConfirmar.addEventListener("click", function () {
         if (pedido.length === 0) {
             mostrarNotificacion("¡Tu cajita está vacía! 🧁", "Agrega tus cupcakes favoritos antes de continuar.");
@@ -478,7 +484,10 @@ const formulario = document.querySelector("#formContacto");
 
 formulario.addEventListener("submit", enviarWhatsApp);
 
+// Se valida si van a enviar el formulario de contacto
 if (formularioNombre) {
+
+    // Se llama función luego de darle clic al botón del formulario
     formularioNombre.addEventListener("submit", function (evento) {
 
         evento.preventDefault();
@@ -488,10 +497,8 @@ if (formularioNombre) {
 
         // Validar el nombre
         if (nombre === "") {
-            mostrarNotificacion(
-                "¿No digitaste tu nombre? 💬",
-                "Con tu nombre podemos entregarte el pedido."
-            );
+            modalNombre.hide()
+            mostrarNotificacion( "¿No digitaste tu nombre? 💬", "Con tu nombre podemos entregarte el pedido.");
             return;
         }
 
