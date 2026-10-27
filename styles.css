@@ -145,7 +145,7 @@ nav a:hover {
 /* ===== Botones y Componentes ===== */
 .btn-dorado {
     background-color: var(--color-lila);
-    color: var(--color-chocolate);
+    color: #fff;
     font-family: var(--font-subtitulos);
     font-weight: 700;
     padding: 0.8rem 1.8rem;
