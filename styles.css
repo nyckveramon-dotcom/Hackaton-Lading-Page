@@ -1,12 +1,178 @@
-* {
-  box-sizing: border-box;
+/* ============================================================ */
+/* Dulce Capricho Store · Estilos de la Landing Page            */
+/* ============================================================ */
+
+/* Importación de Fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@600;700;800&family=Poppins:wght@400;500&family=Quicksand:wght@500;700&display=swap');
+
+/* ===== Variables de Color (Paleta de Marca) ===== */
+:root {
+    --color-chocolate: #5D2E1B;
+    --color-caramelo:  #A26B49;
+    --color-celeste:   #7EC8E3;
+    --color-lila:      #D9B8F2;
+    --color-dorado:    #FFD700;
+    --color-crema:     #FFFDF9;
+    
+    /* Tipografías */
+    --font-titulos:    'Montserrat Alternates', sans-serif;
+    --font-subtitulos: 'Quicksand', sans-serif;
+    --font-cuerpo:     'Poppins', sans-serif;
 }
 
-:root {
-    --chocolate-intenso: #5D2E1B;
-    --caramelo-suave: #A26B49;
-    --celeste-cielo: #7EC8E3;
-    --lila-pastel: #D9B8F2;
-    --dorado-halo: #FFD700;
-    --blanco-crema: #FFFDF9;
+/* ===== Reseteo General ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-crema);
+    color: var(--color-chocolate);
+    font-family: var(--font-cuerpo);
+    line-height: 1.6;
+}
+
+/* ===== Tipografías Globales para Títulos y Subtítulos ===== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-titulos);
+    color: var(--color-chocolate);
+    font-weight: 700;
+}
+
+.subtitulo, .card-title, nav a {
+    font-family: var(--font-subtitulos);
+    font-weight: 700;
+}
+
+p, span, li, a {
+    font-family: var(--font-cuerpo);
+}
+
+/* ===== Estilos de Cabecera y Navegación ===== */
+header {
+    background-color: var(--color-crema);
+    border-bottom: 2px solid var(--color-caramelo);
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    color: var(--color-chocolate);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-chocolate);
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--color-caramelo);
+}
+
+/* ===== Botones de Llamada a la Acción (CTA) ===== */
+.btn-dorado {
+    background-color: var(--color-dorado);
+    color: var(--color-chocolate);
+    font-family: var(--font-subtitulos);
+    font-weight: 700;
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.btn-dorado:hover {
+    transform: translateY(-2px);
+}
+
+/* ===== Hero Section (Sección Principal) ===== */
+.hero {
+    background: linear-gradient(rgba(93, 46, 27, 0.4), rgba(93, 46, 27, 0.4)), url('../img/hero-bakery.jpg') no-repeat center center/cover;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--color-crema);
+    padding: 2rem;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    color: var(--color-crema);
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+/* ===== Secciones de Categorías (Tarjetas estilo referencia) ===== */
+.categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card-celeste {
+    background-color: var(--color-celeste);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.card-caramelo {
+    background-color: var(--color-caramelo);
+    color: var(--color-crema);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.card-lila {
+    background-color: var(--color-lila);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* ===== Pie de Página (Footer) ===== */
+footer {
+    background-color: var(--color-chocolate);
+    color: var(--color-crema);
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+}
+
+footer p {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
 }
