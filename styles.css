@@ -1,12 +1,325 @@
-* {
-  box-sizing: border-box;
+/* ============================================================
+   Dulce Capricho Store · Estilos Landing Page
+   ============================================================ */
+
+/* Importación de fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@600;700;800&family=Poppins:wght@400;500&family=Quicksand:wght@500;700&display=swap');
+
+/* ===== Variables del Sistema ===== */
+:root {
+    --color-chocolate: #5D2E1B;
+    --color-caramelo:  #A26B49;
+    --color-celeste:   #7EC8E3;
+    --color-lila:      #855ea3;
+    --color-dorado:    #dcbe14;
+    --color-crema:     #FFFDF9;
+    
+    --font-titulos:    'Montserrat Alternates', sans-serif;
+    --font-subtitulos: 'Quicksand', sans-serif;
+    --font-cuerpo:     'Poppins', sans-serif;
 }
 
-:root {
-    --chocolate-intenso: #5D2E1B;
-    --caramelo-suave: #A26B49;
-    --celeste-cielo: #7EC8E3;
-    --lila-pastel: #D9B8F2;
-    --dorado-halo: #FFD700;
-    --blanco-crema: #FFFDF9;
+/* ===== Reseteo General ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-crema);
+    color: var(--color-chocolate);
+    font-family: var(--font-cuerpo);
+    line-height: 1.6;
+}
+
+/* ===== Tipografías y Jerarquía ===== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-titulos);
+    color: var(--color-chocolate);
+    font-weight: 700;
+}
+
+.subtitulo, .card-title, nav a {
+    font-family: var(--font-subtitulos);
+    font-weight: 700;
+}
+
+p, span, li, a {
+    font-family: var(--font-cuerpo);
+}
+
+/* ===== Header y Navegación ===== */
+.navbar {
+    min-height: 76px;
+    padding-block: 0.65rem;
+    background-color: var(--color-chocolate) !important;
+}
+
+.navbar .navbar-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: var(--font-subtitulos);
+    font-size: 1.35rem;
+    color: var(--color-crema) !important;
+}
+
+.brand-logo {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: #fff;
+    object-fit: cover;
+    border: 2px solid var(--color-dorado);
+}
+
+.navbar .nav-link {
+    padding-inline: 0.8rem;
+    font-family: var(--font-subtitulos);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-crema) !important;
+}
+
+.navbar .nav-link:hover {
+    color: var(--color-dorado) !important;
+}
+
+header {
+    position: relative;
+    background-color: var(--color-chocolate);
+    border-bottom: 4px solid var(--color-dorado);
+    padding: 3rem 1.5rem;
+    min-height: 45vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+header img.position-absolute {
+    opacity: 0.35 !important;
+    filter: brightness(0.7);
+}
+
+.hero h1, header h1 {
+    font-size: 2.4rem;
+    color: var(--color-crema) !important;
+    margin-bottom: 0.8rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.85);
+}
+
+.hero p, header p.lead {
+    font-size: 1.1rem;
+    color: var(--color-crema) !important;
+    max-width: 650px;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.85);
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    color: var(--color-chocolate);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-chocolate);
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--color-caramelo);
+}
+
+/* ===== Botones y Componentes ===== */
+.btn-dorado {
+    background-color: var(--color-lila);
+    color: var(--color-chocolate);
+    font-family: var(--font-subtitulos);
+    font-weight: 700;
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+}
+
+.btn-dorado:hover {
+    transform: translateY(-2px);
+    background-color: #e6c200;
+    color: var(--color-chocolate);
+}
+
+#estado.abierto {
+    background-color: #2ecc71;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(46, 204, 113, 0.4);
+    display: inline-block;
+    font-weight: 700;
+}
+
+#estado.cerrado {
+    background-color: #e74c3c;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(231, 76, 60, 0.4);
+    display: inline-block;
+    font-weight: 700;
+}
+
+#vaciar {
+    background-color: var(--color-celeste);
+    border: var(--color-celeste);
+}
+
+#valor .carousel img {
+    height: 360px;
+    object-fit: cover;
+}
+
+/* ===== Secciones y Tarjetas ===== */
+.categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card-celeste {
+    background-color: var(--color-celeste);
+    border-radius: 15px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.card-caramelo {
+    background-color: var(--color-caramelo);
+    color: var(--color-crema);
+    border-radius: 15px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.card-lila {
+    background-color: var(--color-lila);
+    border-radius: 15px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* ===== Footer ===== */
+.site-footer {
+    background-color: var(--color-chocolate);
+    color: var(--color-crema);
+    margin-top: 4rem;
+    padding: 3rem 0 1.25rem;
+    border-top: 4px solid var(--color-dorado);
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.75rem 2rem;
+    padding-bottom: 2rem;
+}
+
+.footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: fit-content;
+    color: var(--color-crema);
+    font-family: var(--font-subtitulos);
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.footer-brand img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-dorado);
+}
+
+.footer-tagline {
+    grid-column: 1;
+    margin: 0;
+    color: rgba(255, 253, 249, 0.8);
+}
+
+.footer-nav {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.75rem 1.25rem;
+}
+
+.footer-nav a,
+.footer-bottom a {
+    color: var(--color-crema);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-nav a:hover,
+.footer-bottom a:hover {
+    color: var(--color-dorado);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    border-top: 1px solid rgba(255, 253, 249, 0.25);
+    padding-top: 1rem;
+    color: rgba(255, 253, 249, 0.75);
+    font-size: 0.875rem;
+}
+
+@media (max-width: 767.98px) {
+    #valor .carousel img {
+        height: 240px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-nav {
+        grid-column: 1;
+        grid-row: auto;
+        justify-content: flex-start;
+        margin-top: 0.75rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
 }

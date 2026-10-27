@@ -22,10 +22,11 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#inicio">
-                <i class="bi bi-cup-hot-fill"></i> Dulce Capricho
+                <img class="brand-logo" src="assets/logo-dulce-capricho.png" alt="">
+                <span>Dulce Capricho</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
                 aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
@@ -42,38 +43,287 @@
         </div>
     </nav>
 
-    <header id="inicio" class="bg-primary text-white text-center py-1 position-relative">
-        <img src="https://images.unsplash.com/photo-1771016833998-358dc4cab681?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Fondo del header" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover opacity-50">
-        <div class="container py-lg-5 position-relative">
-            <p class="text-uppercase small fw-semibold mb-2">Los postres más ricos de Colombia</p>
-            <h1 class="display-5 fw-bold">Acá encuentras todo lo que necesitas para ser feliz</h1>
-            <p class="lead mb-4">Preparamos cupcakes que no podrás parar de comer</p>
-            <a href="#productos" class="btn btn-light btn-lg m-1">Ver los productos</a>
+    <header id="inicio" class="text-white text-center">
+        <img src="https://images.unsplash.com/photo-1771016833998-358dc4cab681?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Fondo del header" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover">
+        <div class="container py-4 position-relative">
+            <p id="estado" class="small mb-3"></p>
+            <h1 class="display-6 fw-bold">Acá encuentras todo lo que necesitas para ser feliz</h1>
+            <p class="lead mb-3">Preparamos cupcakes que no podrás parar de comer</p>
+            <a href="#productos" class="btn btn-dorado btn-md">Ver los productos</a>
         </div>
     </header>
-    
-    <main class="py-4">
-        <section id="valor" class="py-4">
-            <div class="container">
-                <div class="row g-4 justify-content-center">
-                    <div class="col-6">
-                        <h2 class="text-center py-4">¿Por qué escogernos?</h2>
-                        <p>En Dulce Capricho transformamos ingredientes de la más alta calidad en momentos de pura felicidad, horneando diariamente cada cupcake desde cero con recetas artesanalmente perfeccionadas.</p>
+
+    <section id="valor" class="container py-4">
+        <div class="row g-4 align-items-center">
+            <div class="col-md-6">
+                <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner rounded-4">
+                        <div class="carousel-item active" data-bs-interval="3000">
+                            <img src="https://i.pinimg.com/1200x/59/13/2b/59132becf164a8d3cfcfc31b8c1e84d3.jpg" class="d-block w-100" alt="Cupcake de vainilla">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="3000">
+                            <img src="https://i.pinimg.com/736x/9b/76/0f/9b760f7f7c59741a4d0f60e0077f6b7b.jpg" class="d-block w-100" alt="Cupcake de chocolate">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="3000">
+                            <img src="https://i.pinimg.com/736x/2d/68/31/2d6831563cb143df1ad554bbc061ead3.jpg" class="d-block w-100" alt="Cupcake de limón">
+                        </div>
+                    </div>
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Imagen 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="1" aria-label="Imagen 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="2" aria-label="Imagen 3"></button>
                     </div>
                 </div>
             </div>
-        </section>
+            <div class="col-md-6 d-grid gap-3 text-center">
+                <div class="card-celeste">
+                    <h3 class="h5 mb-2">100% Artesanales</h3>
+                    <p class="small mb-0">Horneados cada mañana con ingredientes frescos y de la mejor calidad.</p>
+                </div>
+                <div class="card-caramelo">
+                    <h3 class="h5 mb-2">Sabor Único</h3>
+                    <p class="small mb-0">Combinaciones irresistibles de chocolate, arequipe y frutas tropicales.</p>
+                </div>
+                <div class="card-lila">
+                    <h3 class="h5 mb-2">Amor en Cada Bocado</h3>
+                    <p class="small mb-0">Diseñados para alegrar tus celebraciones y momentos especiales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section id="inventario" class="inventario">
-            <h2>Productos</h2>
-            <ul id="menu" class="menu"></ul>
-        </section>
+    <!-- Productos -->
+    <section id="productos" class="container py-5">
+        <h2 class="text-center mb-4">Nuestra Carta</h2>
+        <ul id="menu" class="list-unstyled row g-4">
+            <!-- Se carga desde JS -->
+        </ul>
+    </section>
 
+    <!-- Cómo hacer un pedido -->
+    <section id="pedido">
+    </section>
 
-    </main>
+    <!-- Carrito -->
+    <section id="carrito" class="container py-4 bg-white border border-2 border-light rounded shadow-sm my-4">
+        <h3 class="mb-3">Tu Pedido (<span id="contador-pedido">0</span>)</h3>
+        <ul id="lista-pedido" class="list-unstyled">
+            <!-- Se carga desde JS -->
+        </ul>
+        <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+            <h5>Total: <span id="total-pedido" class="text-success">$0</span></h5>
+            <div>
+                <button id="vaciar" class="btn btn-outline-danger btn-sm me-2">Vaciar</button>
+                <button id="confirmar" class="btn btn-dorado">Confirmar Pedido</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram y formulario de contacto -->
+    <section id="contacto">
+        <div class="container py-4 bg-white border border-1 rounded shadow-sm my-4">
+            <div class="text-center mb-5">
+
+                <div class="eyebrow">CONTÁCTANOS</div>
+
+                <h2 class="mt-2 mb-3">¿Quieres tu cupcake <span class="text-mayse-verde">personalizado</span>?</h2>
+
+                <p class="text-muted mx-auto mb-0" style="max-width: 700px;">
+                    Cuéntanos qué necesitas y ponte en contacto con nuestros pasteleros.
+                </p>
+            </div>
+            <div class="row justify-content-center px-5">
+                <form id="formContacto" onsubmit="enviarWhatsApp(event)">
+                    <div class="row g-3">
+
+                        <!-- NOMBRE -->
+                        <div class="col-12">
+
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre"
+                                autocomplete="name" required>
+
+                        </div>
+
+                        <!-- MENSAJE -->
+                        <div class="col-12">
+
+                            <label for="mensaje" class="form-label">¿En qué podemos ayudarte?</label>
+                            <textarea class="form-control" id="mensaje" name="mensaje" rows="5"
+                                placeholder="Cuéntanos qué servicio necesitas..." required></textarea>
+
+                        </div>
+
+                        <!-- BOTÓN -->
+                        <div class="col-12">
+
+                            <button type="submit" class="btn btn-dorado"><i class="bi bi-whatsapp me-2"></i>Enviar
+                                solicitud</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="d-flex align-items-center flex-wrap gap-3">
+                    <a class="footer-brand" href="#inicio">
+                        <img src="assets/logo-dulce-capricho.png" alt="">
+                        <span>Dulce Capricho</span>
+                    </a>
+                    <a class="text-light text-decoration-none"
+                        href="https://www.instagram.com/dulcecaprichostore_official?cplk=MTRidXFhaWZsNGFyZQ%3D%3D"
+                        target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-instagram" aria-hidden="true"></i> @dulcecaprichostore_official
+                    </a>
+                </div>
+                <p class="footer-tagline">Un dulce capricho siempre alegra el día.</p>
+                <nav class="footer-nav" aria-label="Navegación del pie de página">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#valor">Por qué escogernos</a>
+                    <a href="#productos">Productos</a>
+                    <a href="#pedido">Cómo hacer un pedido</a>
+                    <a href="#contacto">Contacto</a>
+                </nav>
+            </div>
+            <div class="container text-center">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="https://github.com/nyckveramon-dotcom">Nycol Vanesa Vera Montaño</a>
+                    </div>
+                    <div class="col">
+                        <a href="https://github.com/JhonatanReyes276">Jonathan Reyes</a>
+                    </div>
+                    <div class="col">
+                        <a href="https://github.com/Jhoiner26">Jhoiner Andretty</a>
+                    </div>
+                    <div class="col">
+                        <a href="https://github.com/soymichalle">Michalle Daniela Muñoz Ortegón</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <a href="#inicio">Volver arriba <i class="bi bi-arrow-up" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de notificaciones -->
+    <div class="modal fade" id="modalNotificacion" tabindex="-1" aria-labelledby="tituloNotificacion"
+        aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-dulce">
+
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="tituloNotificacion">
+                        ¡Hola! 🧁
+                    </h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar">
+                    </button>
+                </div>
+
+                <div class="modal-body" id="mensajeNotificacion">
+                    Aquí aparecerá tu mensaje.
+                </div>
+
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-dulce" data-bs-dismiss="modal">
+                        Entendido
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para confirmar acciones -->
+    <div class="modal fade" id="modalConfirmacion" tabindex="-1" aria-labelledby="tituloConfirmacion"
+        aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-dulce">
+
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="tituloConfirmacion">
+                        ¿Estás segura? 💗
+                    </h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar">
+                    </button>
+                </div>
+
+                <div class="modal-body" id="mensajeConfirmacion">
+                    ¿Deseas continuar?
+                </div>
+
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+
+                    <button type="button" class="btn btn-dulce" id="aceptarConfirmacion">
+                        Sí, continuar
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para solicitar el nombre -->
+    <div class="modal fade" id="modalNombre" tabindex="-1" aria-labelledby="tituloNombre" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-dulce">
+
+                <form id="formularioNombre">
+
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title" id="tituloNombre">
+                            ¡Preparamos algo delicioso! 🧁
+                        </h5>
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar">
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <label for="nombrePedido" class="form-label">
+                            ¿A nombre de quién va el pedido?
+                        </label>
+
+                        <input type="text" id="nombrePedido" class="form-control" placeholder="Escribe tu nombre"
+                            required maxlength="100">
+                    </div>
+
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                            Cancelar
+                        </button>
+
+                        <button type="submit" class="btn btn-dulce">
+                            Confirmar pedido
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="app.js"></script>
 </body>
 
 </html>
