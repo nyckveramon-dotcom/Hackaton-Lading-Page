@@ -415,6 +415,34 @@ if (botonConfirmar) {
     });
 }
 
+//WHATSAPP
+function enviarWhatsApp(event) {
+    event.preventDefault();
+
+    const nombre = document.getElementById("nombre").value.trim();
+    const mensaje = document.getElementById("mensaje").value.trim();
+    const numeroWhatsApp = "573124308815";
+
+    if (!nombre || !mensaje) {
+        alert("Por favor, completa tu nombre y tu consulta.");
+        return;
+    }
+
+    let texto =
+        "Hola, equipo Dulce Capricho 👋\n\n" +
+        "Me gustaría conocer más sobre sus productos personalizados y saber " +
+        "cómo pueden ayudarme.\n\n";
+
+    texto += "*Nombre:* " + nombre + "\n";
+    texto += "*Mi consulta:*\n" + mensaje + "\n\n";
+    texto += "Quedo atento(a) a su respuesta. " + "Muchas gracias por su atención.";
+    const url = "https://wa.me/" + numeroWhatsApp + "?text=" + encodeURIComponent(texto);
+    window.open(url, "_blank", "noopener,noreferrer");
+}
+
+const formulario = document.querySelector("#formulario-contacto");
+
+formulario.addEventListener("submit", enviarWhatsApp);
 
 // ===== Arranque =====
 mostrarEstado();
