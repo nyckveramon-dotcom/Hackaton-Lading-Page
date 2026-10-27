@@ -8,31 +8,36 @@ const productos = [
     id: 1,
     nombre: "Cupcake de vainilla",
     descripcion: "Bizcocho de vainilla con relleno de mora y crema chantilly.",
-    precio: 5000
+    precio: 5000,
+    imagen: 'https://i.pinimg.com/1200x/59/13/2b/59132becf164a8d3cfcfc31b8c1e84d3.jpg'
   },
   {
     id: 2,
     nombre: "Cupcake de chocolate",
-    descripcion: "Bizcocho de chocolate con relleno de arequipe y cobertura de fondant.",
-    precio: 6000
+    descripcion: "Bizcocho de chocolate con relleno de arequipe y crema de chocolate.",
+    precio: 6000,
+    imagen:'https://i.pinimg.com/736x/9b/76/0f/9b760f7f7c59741a4d0f60e0077f6b7b.jpg'
   },
   {
     id: 3,
     nombre: "Cupcake de limón",
     descripcion: "Bizcocho de limón sin relleno, con crema chantilly.",
-    precio: 4500
+    precio: 4500,
+    imagen: 'https://i.pinimg.com/736x/2d/68/31/2d6831563cb143df1ad554bbc061ead3.jpg'
   },
   {
     id: 4,
-    nombre: "Cupcake de moca",
-    descripcion: "Bizcocho de moca con relleno de chocolate y cobertura mixta.",
-    precio: 6500
+    nombre: "Cupcake de mocca",
+    descripcion: "Bizcocho de moca con relleno de chocolate y crema de vainilla con chipas de chocolate.",
+    precio: 6500,
+    imagen: 'https://i.pinimg.com/1200x/19/80/92/198092435aa38a549a4f87a40d782099.jpg'
   },
   {
     id: 5,
     nombre: "Cupcake Red Velvet",
-    descripcion: "Bizcocho Red Velvet con relleno de mora y cobertura de fondant.",
-    precio: 6500
+    descripcion: "Bizcocho Red Velvet con relleno de mora y cobertura de vainilla con frutas.",
+    precio: 6500,
+    imagen:'https://i.pinimg.com/736x/64/de/2d/64de2d8df3e4b4fd04f460708b92f777.jpg'
   }
 
 ];
