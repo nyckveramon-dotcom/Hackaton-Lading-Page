@@ -10,8 +10,8 @@
     --color-chocolate: #5D2E1B;
     --color-caramelo:  #A26B49;
     --color-celeste:   #7EC8E3;
-    --color-lila:      #D9B8F2;
-    --color-dorado:    #FFD700;
+    --color-lila:      #855ea3;
+    --color-dorado:    #dcbe14;
     --color-crema:     #FFFDF9;
     
     --font-titulos:    'Montserrat Alternates', sans-serif;
@@ -144,7 +144,7 @@ nav a:hover {
 
 /* ===== Botones y Componentes ===== */
 .btn-dorado {
-    background-color: var(--color-dorado);
+    background-color: var(--color-lila);
     color: var(--color-chocolate);
     font-family: var(--font-subtitulos);
     font-weight: 700;
@@ -165,8 +165,8 @@ nav a:hover {
 }
 
 #estado.abierto {
-    background-color: rgba(0, 0, 0, 0.75);
-    color: #2ecc71;
+    background-color: #2ecc71;
+    color: rgba(0, 0, 0, 0.75);
     padding: 0.4rem 1.2rem;
     border-radius: 20px;
     border: 1px solid rgba(46, 204, 113, 0.4);
@@ -175,13 +175,18 @@ nav a:hover {
 }
 
 #estado.cerrado {
-    background-color: rgba(0, 0, 0, 0.75);
-    color: #e74c3c;
+    background-color: #e74c3c;
+    color: rgba(0, 0, 0, 0.75);
     padding: 0.4rem 1.2rem;
     border-radius: 20px;
     border: 1px solid rgba(231, 76, 60, 0.4);
     display: inline-block;
     font-weight: 700;
+}
+
+#vaciar {
+    background-color: var(--color-celeste);
+    border: var(--color-celeste);
 }
 
 #valor .carousel img {
