@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+    --chocolate-intenso: #5D2E1B;
+    --caramelo-suave: #A26B49;
+    --celeste-cielo: #7EC8E3;
+    --lila-pastel: #D9B8F2;
+    --dorado-halo: #FFD700;
+    --blanco-crema: #FFFDF9;
+}
