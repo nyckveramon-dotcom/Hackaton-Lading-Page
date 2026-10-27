@@ -15,7 +15,7 @@
 - JavaScript
 
 ## Deploy
-[Enlace al sitio deployado]
+https://nyckveramon-dotcom.github.io/Hackaton-Lading-Page/
 
 ## Trello
 https://trello.com/invite/b/6ae0bbcc6d20572c83ce7fb0/ATTIed5629fcaf5813d6720c4c1449140b6aA03F1B2A/hackatonfront
