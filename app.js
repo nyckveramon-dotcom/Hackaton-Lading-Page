@@ -4,36 +4,36 @@ const HORA_APERTURA = 9;
 const HORA_CIERRE = 17;
 
 const productos = [
-  {
-    id: 1,
-    nombre: "Cupcake de vainilla",
-    descripcion: "Bizcocho de vainilla con relleno de mora y crema chantilly.",
-    precio: 5000
-  },
-  {
-    id: 2,
-    nombre: "Cupcake de chocolate",
-    descripcion: "Bizcocho de chocolate con relleno de arequipe y cobertura de fondant.",
-    precio: 6000
-  },
-  {
-    id: 3,
-    nombre: "Cupcake de limón",
-    descripcion: "Bizcocho de limón sin relleno, con crema chantilly.",
-    precio: 4500
-  },
-  {
-    id: 4,
-    nombre: "Cupcake de moca",
-    descripcion: "Bizcocho de moca con relleno de chocolate y cobertura mixta.",
-    precio: 6500
-  },
-  {
-    id: 5,
-    nombre: "Cupcake Red Velvet",
-    descripcion: "Bizcocho Red Velvet con relleno de mora y cobertura de fondant.",
-    precio: 6500
-  }
+    {
+        id: 1,
+        nombre: "Cupcake de vainilla",
+        descripcion: "Bizcocho de vainilla con relleno de mora y crema chantilly.",
+        precio: 5000
+    },
+    {
+        id: 2,
+        nombre: "Cupcake de chocolate",
+        descripcion: "Bizcocho de chocolate con relleno de arequipe y cobertura de fondant.",
+        precio: 6000
+    },
+    {
+        id: 3,
+        nombre: "Cupcake de limón",
+        descripcion: "Bizcocho de limón sin relleno, con crema chantilly.",
+        precio: 4500
+    },
+    {
+        id: 4,
+        nombre: "Cupcake de moca",
+        descripcion: "Bizcocho de moca con relleno de chocolate y cobertura mixta.",
+        precio: 6500
+    },
+    {
+        id: 5,
+        nombre: "Cupcake Red Velvet",
+        descripcion: "Bizcocho Red Velvet con relleno de mora y cobertura de fondant.",
+        precio: 6500
+    }
 
 ];
 
@@ -49,11 +49,11 @@ const botonConfirmar = document.querySelector("#confirmar");
 const botonVaciar = document.querySelector("#vaciar");
 const menu = document.querySelector("#menu");
 
-function abierto(hora){
+function abierto(hora) {
     return hora >= HORA_APERTURA && hora < HORA_CIERRE;
 }
 
-function formatearPrecio(valor){//El valor regresa como dato de hora
+function formatearPrecio(valor) {//El valor regresa como dato de hora
     return "$" + valor.toLocaleString("es-CO");
 }
 
@@ -93,7 +93,7 @@ function restarDelCarrito(id) {//Se reutiliza la función de buscar linea y se r
 }
 
 //Se genera contador teniendo en cuenta las lineas del pedido
-function contarProductos() { 
+function contarProductos() {
     let cantidad = 0;
 
     for (const linea of pedido) {
@@ -153,56 +153,54 @@ function mostrarCarta() {//cambiar teniendo en cuenta la barra lateral
 }
 
 function mostrarPedido() {//cambiar teniendo en cuenta la barra lateral
+    
     let html = "";
-
-    for (const linea of pedido) {
-        html += `
-            <li class="linea">
-                <span class="linea-nombre">${linea.producto.nombre}</span>
-
-                <span class="linea-subtotal">
-                    ${formatearPrecio(linea.producto.precio * linea.cantidad)}
-                </span>
-
-                <span class="cantidad">
-                    <button
-                        type="button"
-                        data-accion="restar"
-                        data-id="${linea.producto.id}"
-                        aria-label="Quitar uno"
-                    >−</button>
-
-                    <span>${linea.cantidad}</span>
-
-                    <button
-                        type="button"
-                        data-accion="sumar"
-                        data-id="${linea.producto.id}"
-                        aria-label="Agregar uno"
-                    >+</button>
-                </span>
-
-                <button
-                    class="quitar"
-                    type="button"
-                    data-accion="quitar"
-                    data-id="${linea.producto.id}"
-                >
-                    Quitar
-                </button>
-            </li>`;
-    }
 
     if (pedido.length === 0) {
         html = `
             <li class="vacio">
                 Tu pedido está vacío. Agrega algo de la carta.
             </li>`;
+    } else {
+
+        for (const linea of pedido) {
+            html += `
+            <li class="linea">
+            <div class="linea-info">
+            <span class="linea-nombre">${linea.producto.nombre}</span>
+                        <span class="linea-subtotal">
+                            ${formatearPrecio(linea.producto.precio * linea.cantidad)}
+                        </span>
+                    </div>
+
+                    <div class="linea-controles">
+                        <button type="button" data-accion="restar"
+                            data-id="${linea.producto.id}" aria-label="Quitar uno">−</button>
+
+                        <span>${linea.cantidad}</span>
+
+                        <button type="button" data-accion="sumar"
+                            data-id="${linea.producto.id}" aria-label="Agregar uno">+</button>
+
+                        <button class="quitar" type="button" data-accion="quitar"
+                            data-id="${linea.producto.id}">Quitar</button>
+                    </div>
+                </li>`;
+        }
+
+        html += `
+            </ul>
+            <div class="resumen-pedido">
+                <span>Productos: ${contarProductos()}</span>
+                <strong>Total: ${formatearPrecio(calcularTotal())}</strong>
+            </div>
+            </div>
+            `;
+
     }
 
     listaPedido.innerHTML = html;
-    contadorPedido.textContent = contarProductos();
-    totalPedido.textContent = formatearPrecio(calcularTotal());
+
 }
 
 
