@@ -54,6 +54,33 @@
         </div>
     </header>
 
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-autoplay="true">
+  <div class="carousel-inner rounded-5">
+    <div class="carousel-item active" data-bs-interval="2000">
+      <img src="https://i.pinimg.com/1200x/59/13/2b/59132becf164a8d3cfcfc31b8c1e84d3.jpg" class="d-block w-100" alt="Cupcake de vainilla">
+    </div>
+    <div class="carousel-item" data-bs-interval="4000">
+      <img src="https://i.pinimg.com/736x/9b/76/0f/9b760f7f7c59741a4d0f60e0077f6b7b.jpg" class="d-block w-100" alt="Cupcake de chocolate">
+    </div>
+    <div class="carousel-item" data-bs-interval="6000">
+      <img src="https://i.pinimg.com/736x/2d/68/31/2d6831563cb143df1ad554bbc061ead3.jpg" class="d-block w-100" alt="Cupcake de limón">
+    </div>
+  </div>
+  <div class="d-flex justify-content-between align-items-center mt-3">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="3" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="4" aria-label="Slide 3"></button>
+    </div>
+    <button class="btn-icon btn-sm carousel-control-play-pause" type="button" data-bs-target="#carouselExampleInterval" aria-label="Pause" data-bs-pause-label="Pause" data-bs-play-label="Play">
+      <span class="carousel-icon-pause" aria-hidden="true"></span>
+      <span class="carousel-icon-play" aria-hidden="true"></span>
+    </button>
+  </div>
+</div>
+
     <!-- ¿Por qué nosotros? -->
     <section id="valor" class="container py-5">
         <div class="row g-4 text-center">
@@ -179,10 +206,12 @@
                 </nav>
             </div>
             <ul class="list-unstyled d-flex flex-wrap gap-3 mb-4">
-                <li>Nycol Vanesa Vera Montaño</li>
-                <li>Jonathan David Reyes Rubio</li>
-                <li>Jhoiner Andretty</li>
-                <li>Michalle Daniela Muñoz Ortegón</li>
+                <ul>
+                    <li><a href="https://github.com/nyckveramon-dotcom">Nycol Vanesa Vera Montaño</a></li>
+                    <li><a href="https://github.com/JhonatanReyes276">Jonathan Reyes</a></li>
+                    <li><a href="https://github.com/Jhoiner26">Jhoiner Andretty</a></li>
+                    <li><a href="https://github.com/soymichalle">Michalle Daniela Muñoz Ortegón</a></li>
+                </ul>
             </ul>
             <div class="footer-bottom">
                 <a href="#inicio">Volver arriba <i class="bi bi-arrow-up" aria-hidden="true"></i></a>
